@@ -1,0 +1,20 @@
+import http from "http";
+
+const server = http.createServer((req, res) => {
+    const url = req.url
+    if (url === '/'){
+        res.write("Welcome to the Homepage")
+        res.end()
+    }
+    if (url === '/list') {
+    }
+
+    function createData(data) {
+        data.forEach(element => {
+            tableData+=`
+            <tr><td>${element.name}</td><td>${element.height}</td><td>${element.birth_year}</td><td>${element.gender}</td><td>${element.url}</td></tr>
+            `
+        })
+    }
+
+}).listen(8000, console.log("Server is listening on port" + 8000))
